@@ -8,9 +8,9 @@ spring:
       ddl-auto: validate
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/cardzone
-    username: postgres
-    password: postgres
+    url: postgres://eltaj:4nyCWFyuAf4Fb5ymK9Ix7SReNVHkkdtZ@dpg-cjvg48t175es7396080g-a.oregon-postgres.render.com/cardzone
+    username: eltaj
+    password: 4nyCWFyuAf4Fb5ymK9Ix7SReNVHkkdtZ
   liquibase:
     enabled: true
     change-log: db/changelog-master.yaml
