@@ -1,0 +1,21 @@
+server:
+  port: 8082
+
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/cardzone
+    username: postgres
+    password: postgres
+  liquibase:
+    enabled: true
+    change-log: db/changelog-master.yaml
+springdoc:
+  swagger-ui:
+    enabled: true
+
+

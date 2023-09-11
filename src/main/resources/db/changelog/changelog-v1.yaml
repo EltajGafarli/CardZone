@@ -1,0 +1,80 @@
+databaseChangeLog:
+  - changeSet:
+      id: cardZone-change-set
+      author: Eltaj Gafarli
+      changes:
+        - createTable:
+            tableName: cards
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: pan
+                  type: varchar(16)
+                  constraints:
+                    unique: true
+              - column:
+                  name: balance
+                  type: decimal(10, 2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp with time zone
+                  constraints:
+                    nullable: false
+              - column:
+                  name: customer_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+
+
+        - createTable:
+            tableName: transactions
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+
+              - column:
+                  name: type
+                  type: varchar(6)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: amount
+                  type: decimal(10, 2)
+              - column:
+                  name: has_cashback
+                  type: boolean
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: created_at
+                  type: timestamp with time zone
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: card_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+
+        - addForeignKeyConstraint:
+            baseTableName: transactions
+            baseColumnNames: card_id
+            referencedTableName: cards
+            referencedColumnNames: id
+            constraintName: fk_card_transaction
+
+
