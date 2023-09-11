@@ -15,7 +15,7 @@ spring:
 #      jdbc-url: url
 
   liquibase:
-    enabled: true
+    enabled: false
     change-log: db/changelog-master.yaml
 springdoc:
   swagger-ui:
